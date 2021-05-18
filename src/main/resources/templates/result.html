@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/bootstrap.min.css}">
+
+    <title>Result</title>
+</head>
+<body class="p-3 mb-2 bg-light text-black">
+<div class="container justify-content-center w-50 p-3" style="margin-top: 5em;">
+    <div th:if="${param.success}" class="alert alert-success fill-parent">
+        <h1 class="display-5">Success</h1>
+        <span>Your changes were successfully saved. Click <a th:href="@{/home}">here</a> to continue.</span>
+    </div>
+    <div th:if="${param.error}" class="alert alert-danger fill-parent">
+        <h1 class="display-5">Error</h1>
+        <span>Your changes were not saved. Click <a th:href="@{/home}">here</a> to continue.</span>
+    </div>
+
+    <div th:if="${param.errname}" class="alert alert-danger fill-parent">
+        <h1 class="display-5">Error</h1>
+        <span>You have already uploaded this file !!</span>
+        <span>Click <a th:href="@{/home}" id="here">here</a> to continue.</span>
+    </div>
+    <div th:if="${param.errsize}" class="alert alert-danger fill-parent">
+        <h1 class="display-5">Error</h1>
+        <span>The size of the file must be less than 500 MB !!</span>
+        <span>Click <a th:href="@{/home}" >here</a> to continue.</span>
+
+    </div>
+
+    <div th:if="${param.erremptyFile}" class="alert alert-danger fill-parent">
+        <h1 class="display-5">Error</h1>
+        <span>Empty File !!</span>
+        <span>Click <a th:href="@{/home}" >here</a> to continue.</span>
+
+    </div>
+    <div th:if="${param.errordelete}" class="alert alert-danger fill-parent">
+        <h1 class="display-5">Error</h1>
+        <span>There was an error ! the element was not Deleted !!</span>
+        <span>Click <a th:href="@{/home}" >here</a> to continue.</span>
+
+    </div>
+
+
+
+
+
+</div>
+</body>
+</html>
